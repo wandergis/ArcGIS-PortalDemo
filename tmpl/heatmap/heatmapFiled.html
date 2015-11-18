@@ -1,0 +1,10 @@
+<select node-type="countFiled" class="form-control input-sm">
+    <option value="无计数字段">无计数字段</option> 
+	<% for(var i=0; i<fields.length; i++){ 
+           var o = fields[i];
+           if(o.type=="esriFieldTypeGeometry"||o.type=="esriFieldTypeString"){
+            continue;
+           }%>
+    <option value="<%=o.name%>"><%=o.alias%></option>
+    <% } %>
+</select><br />

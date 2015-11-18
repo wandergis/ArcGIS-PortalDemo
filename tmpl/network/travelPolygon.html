@@ -1,0 +1,32 @@
+<img src="img/travel_simple.png" />
+<!--<p style="padding-top:10px">选择分析图层 </p>
+<select node-type="heatLayerSelect" class="form-control input-sm">
+	  <% for(var i=operationalLayers.length-1; i>=0; i--){ 
+	    var o = operationalLayers[i];
+	  %>
+	    <option value="<%=o.url%>"><%=o.title%></option>
+	  <% } %>
+</select>-->
+<hr />
+
+<p>选择行动方式</p>
+<select node-type="heatLayerStepSelect" class="form-control input-sm">
+	<option value="5">步行</option>
+	<option value="15">汽车</option>
+</select><br />
+
+<div class="row">
+  <div class="col-md-4" style="padding-left: 15px;">
+	   <input node-type="travelTime" class="form-control input-sm" type="text" style="width:170px" value="5">    
+  </div>
+  <div class="col-md-4" style="padding-left: 100px;">
+  	<select node-type="travelTimeType" class="form-control input-sm" style="width:80px;">
+		<option value="秒" >秒</option>
+		<option value="分钟" selected>分钟</option>
+		<option value="小时">小时</option>
+	</select>
+  </div>
+</div>
+<p style="padding-top:5px">若创建多个时间面，请以空格分割，例如： “10 20 30”。</p>
+<hr/>
+<button node-type="travelButton" class="btn btn-primary">选择点并执行分析</button>

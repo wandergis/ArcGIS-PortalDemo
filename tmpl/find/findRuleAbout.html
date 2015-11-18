@@ -1,0 +1,50 @@
+                <div node-type="ruleItemTmpl" class="hidden">
+                  <div class="well">
+                      <select style="width:70px" node-type="ruleItemField" class="form-control input-sm esricdSelectXs">
+                        <% for(var i=0; i<fields.length; i++){ 
+                           var o = fields[i];
+                           if(o.type=="esriFieldTypeGeometry"){
+                            continue;
+                           }
+                        %>
+                        <option value="<%=o.name%>"><%=o.alias%></option>
+                        <% } %>
+                      </select>
+                      <select node-type="ruleItemJudge" class="form-control input-sm esricdSelectXs">
+                      <option value="=">等于</option>
+                      <option value="<>">不等于</option>
+                      <option value=">">大于</option>
+                      <option value="<">小于</option>
+                      <option value="<=">不大于</option>
+                      <option value=">=">不小于</option>
+                      <option value="like">包含</option>
+                      </select>
+                      <input style="width:100px" node-type="ruleItemValue" class="form-control input-sm esricdInputXs" />
+                      <span node-type="removeRole" class="glyphicon glyphicon-remove esricd-hover" ></span>
+                  </div> 
+                </div>
+                <div node-type="rulesBox">
+                  <div class="well">
+                      <select style="width:70px" node-type="ruleItemField" class="form-control input-sm esricdSelectXs">
+                        <% for(var i=0; i<fields.length; i++){ 
+                           var o = fields[i];
+                           if(o.type=="esriFieldTypeGeometry"){
+                            continue;
+                           }
+                        %>
+                        <option value="<%=o.name%>"><%=o.alias%></option>
+                        <% } %>
+                      </select>
+                      <select node-type="ruleItemJudge" class="form-control input-sm esricdSelectXs">
+                      <option value="=">等于</option>
+                      <option value="<>">不等于</option>
+                      <option value=">">大于</option>
+                      <option value="<">小于</option>
+                      <option value="<=">不大于</option>
+                      <option value=">=">不小于</option>
+                      <option value="like">包含</option>
+                      </select>
+                      <input style="width:100px" node-type="ruleItemValue" class="form-control input-sm esricdInputXs" />
+                      <span node-type="removeRole" class="glyphicon glyphicon-remove esricd-hover" ></span>
+                  </div>                               
+                </div>

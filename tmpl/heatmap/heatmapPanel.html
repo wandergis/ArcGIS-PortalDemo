@@ -1,0 +1,40 @@
+<!--热度分析-->
+
+<img src="img/heat_simple.png" />
+<hr/>
+<% if(operationalLayers.length==0){ %>
+  未发现可操作图层
+<% }else{ %>
+
+<div id="heatPanelLayerSelect">
+	选择分析图层:
+	<select node-type="heatLayerSelect" class="form-control input-sm">
+	  <% for(var i=operationalLayers.length-1; i>=0; i--){ 
+	    var o = operationalLayers[i];
+	  %>
+	    <option value="<%=o.url%>"><%=o.title%></option>
+	  <% } %>
+	</select><hr />
+</div>
+
+<p>1.选择计数字段（可选）</p>
+<div node-type="rulesAboutDiv"><!--跟随图层变化-->
+</div>
+
+<div class="blurInfo">
+	<p>2.设置显示参数</p>
+	
+	<a title="模糊半径：热点区域的缓冲半径大小。"><p>模糊半径 : <span data-Type="blurValue" id="blurValue">0-30</span></p></a>
+    <input data-Type="blurControl" id="blurControl" type="range" max=30 min=0 value=20 step=1/>
+
+    <a title="最大像素强度值 :最大像素亮度，像素的亮度值在0至255之间，靠近255的像素亮度较高，靠近0的亮度较低，其余部分就属于中间调。这种亮度的区分是一种绝对区分，即255附近的像素是高光，0附近的像素是暗调，中间调在128左右。"><p>最大像素强度值 : <span data-Type="maxValue" id="maxValue">0-255</span></p></a>
+    <input data-Type="maxControl" id="maxControl" type="range" max=255 min=0 value=24 step=1/>
+
+    <a title="最小像素强度值:最小像素亮度，像素的亮度值在0至255之间，靠近255的像素亮度较高，靠近0的亮度较低，其余部分就属于中间调。这种亮度的区分是一种绝对区分，即255附近的像素是高光，0附近的像素是暗调，中间调在128左右。"><p>最小像素强度值: <span data-Type="minValue" id="minValue">0-255</span></p></a>
+    <input data-Type="minControl" id="minControl" type="range" max=255 min=0 value=3 step=1/>
+</div>
+
+<hr/>
+<button data-drawType="HeatButton" class="btn btn-primary">执行分析</button>
+
+<% } %>

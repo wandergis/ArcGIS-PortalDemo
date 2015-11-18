@@ -1,0 +1,30 @@
+<img src="img/overlay_simple.png" />
+<hr />
+
+<% if(operationalLayers.length==0){ %>
+  未发现可操作图层
+<% }else{ %>
+
+<div>  
+<strong>选择图层</strong>：
+<select node-type="opLayerSelect" class="form-control input-sm">
+	<% for(var i=operationalLayers.length-1; i>=0; i--){ 
+	var o = operationalLayers[i];
+	%>
+	<option value="<%=o.id%>"><%=o.title%></option>
+	<% } %>
+</select>
+</div>
+<br/>
+<div>  
+<strong>分析方式</strong>：
+<select node-type="overlayTypeSelect" class="form-control input-sm">
+	<option value="vertical">竖向</option>
+	<option value="horizontal">横向</option>
+	<option value="scope">范围</option>
+</select>
+</div>
+<br/>
+<button node-type="overlayBtn" type="button" class="btn btn-primary">执行叠加分析</button>
+
+<% } %>

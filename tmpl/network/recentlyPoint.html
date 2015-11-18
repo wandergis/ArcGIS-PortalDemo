@@ -1,0 +1,11 @@
+<img src="img/search_point.png" />
+<p style="padding-top:10px">选择分析图层 </p>
+<select node-type="LayerSelect" class="form-control input-sm">
+	  <% for(var i=operationalLayers.length-1; i>=0; i--){ 
+	    var o = operationalLayers[i];
+	  %>
+	    <option value="<%=o.url%>"><%=o.title%></option>
+	  <% } %>
+</select><hr />
+
+<button node-type="recentlyPointButton" class="btn btn-primary">选择点并执行分析</button>

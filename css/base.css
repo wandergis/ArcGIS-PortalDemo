@@ -1,0 +1,248 @@
+html,body{
+   font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+   height:100%;
+   margin:0px;
+   padding: 0px;
+   font-size: 14px;
+   /*background: url(../img/bodyBg.gif) top left repeat-x;*/
+}
+.margin5{
+	margin: 5px;
+}
+.padding10{
+	padding: 10px;
+}
+.f12{
+	font-size: 12px;
+}
+.f12 a{
+	font-size: 12px;
+}
+.full-width{
+	width: 100%;
+}
+.top{
+	font-size: 0px;
+}
+.header{
+	font-size: 28px;
+	padding: 3px 10px;
+}
+.header .title-sys{
+	font-size: 12px;
+}
+.header .title-app{
+	color: #006666;
+	font-size: 24px;
+}
+.esricd-line{
+	margin:5px 0px;
+}
+.esricd-hover{
+	cursor: pointer;
+}
+.esricd-opacity-menu:hover .esricd-opacity-slider{
+	display: block;
+}
+a.esricd-opacity-menu .esricd-opacity-slider{
+	position: absolute;
+	width: 100px;
+	left: 100px;
+	top: 35px;	
+	display: none;
+}
+
+/*find面板*/
+.panel-body select.esricdSelectXs{
+	padding: 2px;
+	display: inline-block;
+	width: auto;
+	height: 25px;
+	vertical-align: middle;
+}
+.panel-body input.esricdInputXs{
+	padding: 2px;
+	display: inline-block;
+	height: 25px;
+	vertical-align: middle;
+}
+.panel-body .well{
+	padding:5px;
+	margin:5px 0px;
+	border-radius:0px;
+}
+/*第一条规则不能删除*/
+div[node-type=rulesBox] .well:first-child span[node-type=removeRole]{
+	display: none;
+}
+/*浮动数据表格容器*/
+.esricd-bot-box{
+	z-index: 101;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 200px;
+	transition-property: bottom;
+	transition-duration: 0.2s;
+}
+.esricd-bot-box .panel{
+	margin-bottom: 0px;
+}
+/*toolbar的浮动面板*/
+.esricd-bar-panel{
+	z-index: 40;
+	position: fixed;
+	top: 76px;
+	display: none;
+}
+.esricd-bar-panel .panel-body{
+	font-size: 12px;
+}
+
+/*浮动面板*/
+.esricd-panel{
+	z-index: 40;
+	position: fixed;
+	left: 0px;
+	top: 84px;
+	width: 300px;
+	height: 640px;	
+	transition-property: left,right;
+	transition-duration: 0.5s;
+}
+.esricd-panel-right{
+	left: auto;
+	right: 0px;
+}
+.esricd-panel-tab-title{
+	border-bottom: 1px solid #ccc;
+	line-height: 30px;
+	margin-top: 15px;
+	font-size: 16px;
+}
+.esricd-panel-tab-content{
+	/*overflow: auto;*/
+}
+/*浮动面板控制的手柄*/
+.esricd-panel-handler{
+	font-size: 12px;
+	color: #fff;
+	z-index: 35;
+	position: fixed;
+	top: 270px;
+	width: 70px;
+	height: 90px;
+	background: rgba(173, 98, 98, 0.71);
+	border: 2px solid rgb(165, 68, 68);
+	border-radius: 4px;
+	cursor: pointer;
+	left: -30px;
+	transition-property: left,right;
+	transition-duration: 0.5s;
+}
+.esricd-panel-handler:hover{
+	left: -2px;
+}
+.esricd-panel-handler-title{
+	float: right;
+	word-wrap: break-word;
+	width: 25px;
+	padding: 0px 3px;
+}
+.esricd-panel-handler-title img{
+	width: 14px;
+	height: 14px;
+}
+  /*右边停靠*/
+.esricd-handler-right{
+	left: auto;
+	right: -30px;
+}
+.esricd-handler-right:hover{
+	left: auto;
+	right: -2px;
+}
+.esricd-handler-right .esricd-panel-handler-title{
+	float: left;
+}
+
+/*地图*/
+#HomeButton, #LocateButton{
+	position: absolute;
+	left: 20px;
+	top: 95px;
+	z-index: 30;
+}
+#LocateButton{
+	top: 210px;
+}
+
+/*bs修改*/
+.navbar-nav li{
+	margin: 0px 3px;
+}
+.panel .panel-heading{
+	padding: 7px 10px;
+}
+
+/*arcgis修改*/
+.map .tooltip {
+	/*跟bootstrap的css样式重合了*/
+	opacity: 1;
+}
+.esriBasemapGalleryNode{
+	height: 100px;
+}
+.esricd-toxy{
+	width: 200px;
+	display: inline-block;
+	margin-top: 6px;
+	margin-left:6px;
+}
+.esricd-geocoder {
+	display: inline-block;
+	width: 255px;
+	margin-top: 10px;
+	margin-left: 10px;
+	display: none;
+}
+.esricd-geocoder .arcgisGeocoder .esriGeocoder{
+	border-radius: 4px;
+}
+.esricd-geocoder .arcgisGeocoder .esriGeocoderIcon{
+	margin-top: 6px;
+}
+.esricd-geocoder .arcgisGeocoder .esriGeocoder input{
+	line-height: 25px;
+}
+#bookmarkDiv input{
+	height: 20px;
+}
+/*dgrid修改*/
+.dgrid-hider-menu{
+	height: 170px;
+}
+.dgrid-scroller{
+	height: 150px;
+}
+
+/*左侧图层菜单*/
+#layersInfoDiv h5:first-of-type .upMenuItem{
+  display: none;	
+}
+
+#layersInfoDiv h5:last-of-type .downMenuItem{
+  display: none;	
+}
+
+#layersInfoDiv>h5{
+	font-size: 14px;
+	margin:0px;
+}
+#layersInfoDiv .esricd-layer-title{
+	width: 225px;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

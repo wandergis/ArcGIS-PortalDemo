@@ -1,0 +1,57 @@
+<!--缓冲区分析-->
+<img src="img/buffer_simple.png" />
+<hr />
+<% if(operationalLayers.length==0){ %>
+  未发现可操作图层
+<% }else{ %>
+
+<div id="bufferPanelLayerSelect">
+
+	<strong>分析方式</strong>：<br/>
+	<div class="btn-group btn-group-justified btn-group-sm">
+	  <div class="btn-group">
+	    <button data-drawType="POINT" type="button" class="btn btn-default">点</button>
+	  </div>
+	  <div class="btn-group">
+	    <button data-drawType="POLYLINE" type="button" class="btn btn-default">折线</button>
+	  </div>
+	  <div class="btn-group">
+	    <button data-drawType="POLYGON" type="button" class="btn btn-default">多边形</button>
+	  </div>
+	</div>
+	<br />
+	选择分析图层:
+	<select node-type="bufferLayerSelect" class="form-control input-sm">
+	  <% for(var i=operationalLayers.length-1; i>=0; i--){ 
+	    var o = operationalLayers[i];
+	  %>
+	    <option value="<%=o.url%>"><%=o.title%></option>
+	  <% } %>
+	</select>
+	<hr/>
+</div>
+ 
+ <div id="bufferPanelAttribute">
+ 	<p>输入缓冲区距离</p>
+	<div class="row">
+	  <div class="col-md-4" style="padding-left: 15px;">
+	  	<input node-type="bufferDistance" class="form-control input-sm" type="text" style="width:170px">  
+	  </div>
+	  <div class="col-md-4" style="padding-left: 100px;">
+	  	<select node-type="bufferDistanceUnitsSelect" class="form-control input-sm" style="width:80px;">
+			<option value="千米">千米</option>
+	    	<option value="米">米</option>
+		</select>
+	  </div>
+	</div>
+	<p style="padding-top:5px">若创建多个缓冲区，请以空格分割，例如： “10 20 30”。</p>
+	<hr/>
+ </div>
+ 
+ <div id="bufferPanelHandle">
+ 	<!--<input type=checkbox name=ext checked>使用当前地图范围<br />-->
+ 	<button data-drawType="BufferButton" class="btn btn-primary">执行分析</button>
+ </div>
+
+
+<% } %>

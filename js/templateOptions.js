@@ -1,0 +1,1 @@
+define({queryForWebmap:!0,queryForGroupInfo:!1,queryForGroupItems:!1,queryForOrg:!0,queryForLocale:!1,queryForCommonConfig:!1,groupParams:{q:'group:"${groupid}" AND -type:"Code Attachment"',sortField:"modified",sortOrder:"desc",num:9,start:0},urlItems:["theme"]});

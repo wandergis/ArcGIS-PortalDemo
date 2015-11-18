@@ -1,0 +1,28 @@
+<% if(operationalLayers.length==0){ %>
+  未发现可操作图层
+<% }else{ %>
+
+<strong>选择图层</strong>：
+<select node-type="queryLayerSelect" class="form-control input-sm">
+  <% for(var i=operationalLayers.length-1; i>=0; i--){ 
+    var o = operationalLayers[i];
+  %>
+    <option value="<%=esricd_toQueryLayerUrl(o.url)%>"><%=o.title%></option>
+  <% } %>
+</select>
+<br/>
+<strong>查询方式</strong>：<br/>
+
+<div class="btn-group btn-group-justified btn-group-sm">
+  <div class="btn-group">
+    <button data-drawType="POINT" type="button" class="btn btn-primary">点</button>
+  </div>
+  <div class="btn-group">
+    <button data-drawType="POLYLINE" type="button" class="btn btn-primary">折线</button>
+  </div>
+  <div class="btn-group">
+    <button data-drawType="POLYGON" type="button" class="btn btn-primary">多边形</button>
+  </div>
+</div>
+
+<% } %>

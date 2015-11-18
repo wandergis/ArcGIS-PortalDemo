@@ -1,0 +1,36 @@
+<% if(operationalLayers.length==0){ %>
+  未发现可操作图层
+<% }else{ %>
+
+<div>  
+<strong>选择图层</strong>：
+<select node-type="findLayerSelect" class="form-control input-sm">
+	<% for(var i=operationalLayers.length-1; i>=0; i--){ 
+	var o = operationalLayers[i];
+	%>
+	<option value="<%=esricd_toQueryLayerUrl(o.url)%>"><%=o.title%></option>
+	<% } %>
+</select>
+</div>
+<br/>
+<div class="esricd-line">  
+匹配以下
+  <select node-type="findRulesUnion" class="form-control input-sm esricdSelectXs">
+  <option value="and">全部</option>
+  <option value="or">任一</option>
+  </select>规则：
+</div>
+<div node-type="rulesAboutDiv"><!--跟随图层变化-->
+</div>
+
+<div class="esricd-line">  
+<button node-type="addRole" type="button" class="btn btn-default btn-xs">
+   <span class="glyphicon glyphicon-plus"></span>添加规则
+</button>
+<div>
+<div class="esricd-line">
+  <button node-type="find" type="button" class="btn btn-primary center-block">查询</button>
+</div>
+
+<% } %>
+

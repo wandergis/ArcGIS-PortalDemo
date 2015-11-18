@@ -1,0 +1,68 @@
+<% for(var i=operationalLayers.length-1; i>=0; i--){ 
+	var o = operationalLayers[i];
+%>
+	<!--
+	这里是因为:first-of-type选择器只能支持不同标签
+	而上移下移的隐藏需要使用该选择器实现，比如：
+	#layersInfoDiv div:first-of-type .upMenuItem{
+	  display: none;	
+	}
+    -->
+
+	<% if( esricd_isReorderableLayer(o) ){ %>
+	<h5 
+	class="reorderableLayer"
+	node-type="reorderableLayer"
+	data-layerid="<%=o.id%>"
+	>
+	<% }else{ %>
+	<div>
+	<% } %>
+	 
+	
+	  <label style="font-weight:normal">
+	  	<input 
+	  	<% if(o.visibility){ %>
+	  	  checked="true"
+	  	<% } %>
+	  	data-layerid="<%=o.id%>" 
+	  	type="checkbox"
+	  	 > 
+	  	<span class="esricd-layer-title"><%=o.title%></span>
+	  </label>
+	  	<!---->
+
+		<div class="dropdown f12 esricd-jqui" style="display:inline-block">
+		  <img src="img/icons/dropdown.png" data-toggle="dropdown" class="esricd-hover">
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a node-type="menuZoomto" data-layerid="<%=o.id%>" data-oplayerIndex="<%=i%>" href="#"><img src="img/icons/zoomTo.png" /> &nbsp;缩放至</a></li>
+		    <li><a node-type="menuOpacity" data-layerid="<%=o.id%>" data-opacity="<%=o.opacity%>" href="javascript:void(0)" class="esricd-opacity-menu"><img src="img/icons/opacity.png" /> &nbsp; 透明度
+		    	<div node-type="jqSlider" data-layerid="<%=o.id%>" class="esricd-opacity-slider"></div>
+		    </a></li>
+		    <li><a node-type="menuDataTable" data-layerUrl="<%=esricd_toQueryLayerUrl(o.url)%>" href="#"><img src="img/icons/table.png" /> &nbsp; 属性表</a></li>
+		    <li><a target="_blank" href="<%=o.url%>"><img src="img/icons/desc.png" /> &nbsp; 描述</a></li>
+		    <% if( esricd_isReorderableLayer(o) ){ %>
+			    <li class="upMenuItem"><a node-type="reorderLayer" data-dir="up" href="#"><img src="img/icons/up.png" /> &nbsp; 上移</a></li>
+			    <li class="downMenuItem"><a node-type="reorderLayer" data-dir="down" href="#"><img src="img/icons/down.png" /> &nbsp; 下移</a></li>
+		    <% } %>
+		  </ul>
+		  
+		</div>
+
+	<!--
+	这里是因为:first-of-type选择器只能支持不同标签
+	而上移下移的隐藏需要使用该选择器实现，比如：
+	#layersInfoDiv div:first-of-type .upMenuItem{
+	  display: none;	
+	}
+    -->
+	<% if( esricd_isReorderableLayer(o) ){ %>
+	</h5>
+	<% }else{ %>
+	</div>
+	<% } %>
+  
+<% } %>
+<div> 
+   <img src="img/icons/global.png" > 地图底图
+</div>

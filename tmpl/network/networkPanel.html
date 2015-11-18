@@ -1,0 +1,43 @@
+<!--路网分析面板-->
+
+
+    <ul class="nav nav-tabs" id="networkTab">
+      <li class="active"><a node-type="travelPolygonInfo" href="#tabTravelPolygon" data-toggle="tab">时间面</a></li>
+      <li ><a node-type="recentlyPointInfo"  href="#tabRecentlyPoint" data-toggle="tab">最近点</a></li>
+      <li ><a node-type="routeInfo" href="#tabRoute" data-toggle="tab">规划路径</a></li>
+    </ul>
+<% if(operationalLayers.length==0){ %>
+  <br/><br/>
+  未发现可操作图层
+<% }else{ %>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tabTravelPolygon">
+        <div class="esricd-panel-tab-title">
+          行驶时间面
+        </div>
+        <div class="esricd-panel-tab-content">
+        	<!--行驶时间面-用于替换-->
+          <div  id="travelPolygonInfo" style="padding-top:10px"></div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tabRecentlyPoint">
+        <div class="esricd-panel-tab-title">
+          查找最近点
+        </div>
+        <div class="esricd-panel-tab-content f12" style="overflow:auto">
+        	<!--查找最近点-用于替换-->
+          <div id="recentlyPointInfo" style="padding-top:10px" ></div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tabRoute">
+        <div class="esricd-panel-tab-title" id="baseInfoTitle">
+          规划路径
+        </div>
+        <div class="esricd-panel-tab-content f12">
+        	<!--规划路径-用于替换-->
+          <div id="routeInfo" style="padding-top:10px" ></div>
+        </div>
+      </div>
+    </div>
+
+<% } %>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="" name="description">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="renderer" content="webkit">
+<title>地图打印</title>
+<style>
+html,body{
+   font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+   background:#FFF;
+   margin: 0px;
+   padding: 0px;
+}
+.print-img{
+  display: block;
+  padding: 4px;
+  margin: 20px auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+</style>
+<link rel="stylesheet" href="//portal.cloud.yngc/arcgis_js_api/library/3.11/3.11/dijit/themes/claro/claro.css">
+<link rel="stylesheet" href="//portal.cloud.yngc/arcgis_js_api/library/3.11/3.11/esri/css/esri.css">
+</head>
+
+<body>
+<img class="print-img" id="PrintImg" src="img/loading.gif"/>
+
+<div id="PrinterDiv" style="display:none"></div>
+</body>
+<script src="//portal.cloud.yngc/arcgis_js_api/library/3.11/3.11/init.js"></script>
+
+<script type="text/javascript">
+require(["dojo/dom-attr", "esri/dijit/Print", "esri/tasks/PrintTask", "esri/tasks/PrintParameters","esri/tasks/PrintTemplate", "dojo/domReady!"], function(domAttr, Print, PrintTask, PrintParameters, PrintTemplate ){
+      esri.config.defaults.io.proxyUrl = "./proxy.jsp";
+      //console.log("esriproxy");
+      var app = window.opener.myApp;
+      var printTask = new PrintTask( app.config.helperServices.printTask.url );
+
+      var template = new PrintTemplate();
+      template.exportOptions = {
+        width: 1000,
+        height: 600,
+        dpi: 96
+      };
+      template.format = "PDF";
+      template.layout = "MAP_ONLY";
+      template.preserveScale = false;
+
+
+      var params = new PrintParameters();
+      params.map = app.map;
+      params.template = template;
+
+        printTask.execute(params, function(evt){
+        //console.log("ok",evt);
+        domAttr.set("PrintImg", "src", evt.url);
+      });
+
+
+      /*
+      var printer = new Print({
+        map: app.map,
+        url: app.config.helperServices.printTask.url
+      }, "PrinterDiv");
+      printer.startup();
+      printer.printMap({
+                      label: "Map",
+                      format: "JPG",
+                      layout: "MAP_ONLY",
+                      exportOptions: {
+                        width: 900,
+                        height: 600,
+                        dpi: 96
+                      }
+                    });
+      printer.on('print-complete',function(evt){
+        console.log('The url to the print image is : ' + evt.result.url, evt);
+        domAttr.set("PrintImg", "src", evt.result.url);
+      });
+      */
+
+      
+
+});
+</script>
+</html>
