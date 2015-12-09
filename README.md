@@ -1,5 +1,5 @@
-## portaldemo
-A demo for arcgis potal use arcgis js api
+## portal项目模板
+一个使用arcgis js api写的arcgis portal项目模板
 
 ## 线上访问地址
 [访问地址](http://wandergis.github.io/portaldemo/)
